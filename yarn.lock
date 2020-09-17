@@ -1757,6 +1757,11 @@
   dependencies:
     "@types/yargs-parser" "*"
 
+"@types/yup@^0.29.7":
+  version "0.29.7"
+  resolved "https://registry.yarnpkg.com/@types/yup/-/yup-0.29.7.tgz#80c5e427a3b152e583ac2859767ccf59db0d3a16"
+  integrity sha512-x3Zeh8/qLZ6fG4S1EztI1S1mLj6N1pSUV1PAj/9finZba48d3Maxtyz4WYNUY0NE76u1KSukfNLkjcRlb+O00g==
+
 "@typescript-eslint/eslint-plugin@^2.10.0":
   version "2.24.0"
   resolved "https://registry.yarnpkg.com/@typescript-eslint/eslint-plugin/-/eslint-plugin-2.24.0.tgz#a86cf618c965a462cddf3601f594544b134d6d68"
@@ -1866,6 +1871,11 @@
   integrity sha512-d6xQJWFrLfEyfN7f5t2IdYBLJE/OrvPKILCzGKPSoAmY3+vAnEc4CPE5l6zB+LxWSfMn69QhsqzI20tIRNT7EA==
   dependencies:
     dot-object "^2.1.2"
+
+"@unform/web@^2.1.3":
+  version "2.1.3"
+  resolved "https://registry.yarnpkg.com/@unform/web/-/web-2.1.3.tgz#4f53db60c16e9e90b8faa82100bbee8cf198d4cb"
+  integrity sha512-yiY6r3TAinphVxyQ5iKDrKJQkg21oRlYe0WfIoXxs9VKiFPSZ5xb1pz3Kti3kTgOP9BYLVX5ovcCwuVWCrjHYg==
 
 "@webassemblyjs/ast@1.8.5":
   version "1.8.5"
