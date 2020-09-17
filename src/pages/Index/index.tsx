@@ -3,11 +3,10 @@ import { FiSearch } from 'react-icons/fi';
 import {Form} from '@unform/web';
 import {FormHandles} from '@unform/core';
 import { useToast } from '../../hooks/Toast';
-import getValidationErrors from '../../utils/getValidationErrors';
-import logo from '../../assets/logo.svg';
+import logo from '../../assets/logo.png';
 import Input from '../../components/Input';
 
-import { Container} from './styles';
+import { Container } from './styles';
 
 interface PokemonFormData {
     pokemon: string;
@@ -32,3 +31,5 @@ const Index: React.FC = () => {
         </Container>
     )
 }
+
+export default Index;
