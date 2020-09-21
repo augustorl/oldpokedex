@@ -1,4 +1,4 @@
-import React, {useRef, useCallback} from 'react';
+import React, {useRef, useCallback, useState} from 'react';
 import { FiSearch } from 'react-icons/fi';
 import {Form} from '@unform/web';
 import {FormHandles} from '@unform/core';
@@ -15,6 +15,7 @@ interface PokemonFormData {
 const Index: React.FC = () => {
     const formRef = useRef<FormHandles>(null);
     const { addToast } = useToast();
+    const [pokemons, setPokemons] = useState([]);
 
     const searchPokemon = useCallback(
         async (data: PokemonFormData) => {

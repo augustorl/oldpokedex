@@ -15,4 +15,7 @@ form {
   margin-top: 109px;
   width: 560px;
 }
+input {
+  color: #5F6368;
+}
 `;
