@@ -16,9 +16,9 @@ const Index: React.FC = () => {
     const formRef = useRef<FormHandles>(null);
     const { addToast } = useToast();
 
-    const handleSubmit = useCallback(
+    const searchPokemon = useCallback(
         async (data: PokemonFormData) => {
-            const response = await api.get('pokemons', {
+            const response = await api.get('pokemon/', {
                 data,
             });
         }, []);
@@ -26,7 +26,7 @@ const Index: React.FC = () => {
         <Container>
             <img src={logo} alt="Pokemon" />
             <FormContainer>
-            <Form ref={formRef} onSubmit={handleSubmit}>
+            <Form ref={formRef} onSubmit={searchPokemon}>
                 <Input
                     name="pokemon"
                     type="text"
