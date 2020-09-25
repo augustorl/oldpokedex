@@ -1,6 +1,8 @@
 import { createGlobalStyle } from 'styled-components';
 
+
 export default createGlobalStyle`
+
   html {
     --pokemon-normal-color: #a4acaf;
     --pokemon-fighting-color: #d56723,
@@ -26,6 +28,7 @@ export default createGlobalStyle`
     
   }
   * {
+    font-family: 'Press Start 2P', 'sans serif';
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -34,14 +37,14 @@ export default createGlobalStyle`
   }
 
   body {
-    background: #fff;
+    background: #fcfcfc;
     color: #5F6368;
     -webkit-font-smoothing: antialiased;
+    font-family: 'Press Start 2P', 'sans serif';
   }
 
   body, input, button {
-    font-family: 'Roboto Slab', serif;
-    font-size: 16px;
+    font-size: 14px; 
   }
 
   h1, h2, h3, h4, h5, h6, strong {
