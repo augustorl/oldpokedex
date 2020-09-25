@@ -7,9 +7,8 @@ interface ContainerProps {
   isErrored: boolean;
 }
 export const Container = styled.div<ContainerProps>`
-  background: #fff;
-  border-radius: 10px;
-  border: 2px solid #222;
+  background: #fcfcfc;
+  border: 4px double #000;
   padding: 16px;
   width: 100%;
   color: #222;
@@ -31,14 +30,14 @@ export const Container = styled.div<ContainerProps>`
   input {
     flex: 1;
     background: transparent;
-    border: 0;
-    color: #fff;
+    border: none;
+    color: #fcfcfc;
     &::placeholder {
-      color: #222;
+      color: #000;
     }
   }
   svg {
-    margin-right: 16px;
+    margin-left: 16px;
   }
 `;
 
@@ -50,7 +49,7 @@ export const Error = styled(Tooltip)`
   }
   span {
     background: #CC0000;
-    color: #fff;
+    color: #fcfcfc;
     &::before {
       border-color: #CC0000 transparent;
     }

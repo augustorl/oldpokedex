@@ -49,7 +49,7 @@ const Input: React.FC<InputProps> = ({
       isErrored={!!error}
       isFilled={isFilled}
     >
-      {Icon && <Icon size={20} />}
+      
       <input
         name={name}
         onBlur={handleInputBlur}
@@ -57,6 +57,7 @@ const Input: React.FC<InputProps> = ({
         ref={inputRef}
         {...rest}
       />
+      {Icon && <Icon size={26} />}
 
       {error && (
         <Error title={error}>

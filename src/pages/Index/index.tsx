@@ -5,8 +5,10 @@ import {FormHandles} from '@unform/core';
 import { useToast } from '../../hooks/Toast';
 import * as Yup from 'yup';
 import api from '../../services/api';
-import logo from '../../assets/logo.svg';
+import logo from '../../assets/logo.png';
 import Input from '../../components/Input';
+import Button from '../../components/Button';
+
 
 import { Container, FormContainer } from './styles';
 
@@ -34,16 +36,16 @@ const Index: React.FC = () => {
     return  (
         <Container>
             <img src={logo} alt="Pokemon" />
-            <FormContainer>
             <Form ref={formRef} onSubmit={searchPokemon}>
-                <Input
-                    name="pokemon"
-                    type="text"
-                    placeholder="Search Pokemon"
-                    icon={FiSearch}
-                />
-            </Form>
-            </FormContainer>
+                <FormContainer>
+                    <Input
+                        name="pokemon"
+                        type="text"
+                        placeholder="Enter a Pokemon name!"
+                    />
+                    <Button type="submit">Go!</Button>
+                </FormContainer>
+            </Form>     
         </Container>
     )
 }
