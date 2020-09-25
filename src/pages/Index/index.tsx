@@ -20,6 +20,7 @@ const Index: React.FC = () => {
     const formRef = useRef<FormHandles>(null);
     const { addToast } = useToast();
     const [pokemons, setPokemons] = useState([]);
+    
 
     const searchPokemon = useCallback( async (data: PokemonFormData) => {
         try {
@@ -29,6 +30,10 @@ const Index: React.FC = () => {
             await schema.validate(data, {
                 abortEarly: false,
             });
+            const SearchedPoke = data.pokemon.toLowerCase();
+            const response = await api.get(`https://pokeapi.co/api/v2/pokemon/${SearchedPoke}`);
+
+            console.log(response);
         } catch (err) {
             console.log(err);
         }
