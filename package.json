@@ -19,6 +19,7 @@
     "eslint": "^5.16.0",
     "eslint-config-airbnb": "^18.2.0",
     "eslint-plugin-react": "^7.20.0",
+    "polished": "^3.6.7",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-icons": "^3.11.0",
