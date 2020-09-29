@@ -32,7 +32,9 @@ const Index: React.FC = () => {
                 abortEarly: false,
             });
             const SearchedPoke = data.pokemon.toLowerCase();
+
             const response = await api.get(`https://pokeapi.co/api/v2/pokemon/${SearchedPoke}`);
+            localStorage.setItem('@Pokemon:searched', response.data);
 
             console.log(response);
         } catch (err) {
