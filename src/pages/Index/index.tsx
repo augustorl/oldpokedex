@@ -8,6 +8,7 @@ import api from '../../services/api';
 import logo from '../../assets/logo.png';
 import Input from '../../components/Input';
 import Button from '../../components/Button';
+import getValidationErrors from '../../utils/getValidationErrors';
 
 
 import { Container, FormContainer } from './styles';
@@ -35,9 +36,23 @@ const Index: React.FC = () => {
 
             console.log(response);
         } catch (err) {
-            console.log(err);
-        }
-    }, [] );
+            if (err instanceof Yup.ValidationError) {
+              const errors = getValidationErrors(err);
+    
+              formRef.current?.setErrors(errors);
+    
+              return;
+            }
+    
+            addToast({
+              type: 'error',
+              title: 'Erro na autenticação',
+              description: 'Ocorreu um erro ao fazer login, cheque as credenciais',
+            });
+          }
+        },
+        [addToast],
+      );
     return  (
         <Container>
             <img src={logo} alt="Pokemon" />
