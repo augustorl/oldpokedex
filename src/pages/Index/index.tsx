@@ -9,6 +9,7 @@ import logo from '../../assets/logo.png';
 import Input from '../../components/Input';
 import Button from '../../components/Button';
 import getValidationErrors from '../../utils/getValidationErrors';
+import Pokemon from '../../components/Pokemon';
 
 
 import { Container, FormContainer } from './styles';
@@ -16,11 +17,17 @@ import { Container, FormContainer } from './styles';
 interface PokemonFormData {
     pokemon: string;
 }
-
+interface generatePokemonData {
+    id: number;
+    type: string;
+    name: string;
+    height: number;
+    weight: number;
+}
 const Index: React.FC = () => {
     const formRef = useRef<FormHandles>(null);
     const { addToast } = useToast();
-    const [pokemons, setPokemons] = useState([]);
+    const [pokemon, setPokemon] = useState([]);
     
 
     const searchPokemon = useCallback( async (data: PokemonFormData) => {
@@ -34,7 +41,7 @@ const Index: React.FC = () => {
             const SearchedPoke = data.pokemon.toLowerCase();
 
             const response = await api.get(`https://pokeapi.co/api/v2/pokemon/${SearchedPoke}`);
-            localStorage.setItem('@Pokemon:searched', response.data);
+            setPokemon(response.data);
 
             console.log(response);
         } catch (err) {
@@ -42,7 +49,7 @@ const Index: React.FC = () => {
               const errors = getValidationErrors(err);
     
               formRef.current?.setErrors(errors);
-    
+              
               return;
             }
     
@@ -53,9 +60,16 @@ const Index: React.FC = () => {
             });
           }
         },
-        [addToast],
+        [addToast, setPokemon],
       );
-    return  (
+
+      const generatePokemon = (pokemon: generatePokemonData) => {
+        const {id, type, name, height, weight } = pokemon;
+        return (
+            <Pokemon />
+        )
+      }
+      return  (
         <Container>
             <img src={logo} alt="Pokemon" />
             <Form ref={formRef} onSubmit={searchPokemon}>
