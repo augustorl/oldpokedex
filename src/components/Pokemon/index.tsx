@@ -5,6 +5,7 @@ import React, {
   useCallback,
 } from 'react';
 import { Container } from  './styles';
+import ProgressBar from '../ProgressBar';
 
 interface PokeProps {
   id: number;
@@ -40,7 +41,10 @@ const Pokemon: React.FC = () => {
 							<p className="height">Height <div><p>10</p></div></p>
 							<p className="weight">Weight <div><p>98</p></div></p>
 						</div>
-
+            <div id ="hp-bar">
+              <p>hp: 74</p>
+             <ProgressBar bgcolor="#9bcc50" completed="75"/>
+            </div>
 						<div id="base-stats">
 							<div className="stat"><h1>attack </h1><p>20</p></div>
 							<div className="stat"><h1>defense </h1><p>30</p></div>

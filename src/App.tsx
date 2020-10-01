@@ -5,9 +5,11 @@ import Pokemon from './components/Pokemon';
 
 
 
+
+
 const App: React.FC = () => (
   <>
-    <Pokemon/>
+    <Index />
     <GlobalStyle />
   </>
 );

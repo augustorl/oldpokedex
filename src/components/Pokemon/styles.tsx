@@ -62,9 +62,19 @@ export const Container = styled.div`
         text-transform: uppercase;
         color: #E4E4E4;
 
+        div#hp-bar {
+            margin-top: 6px;
+
+            p {
+                margin-left: 2px;
+                margin-bottom: 1px;
+                margin-top: 1px;
+            }
+        }
+
         div#main-stats {
             display: flex;
-            justify-content: space-between;
+            justify-content: space-around;
             width: 275px;
             padding-right: 30px;
             font-size: 18px;
@@ -75,8 +85,8 @@ export const Container = styled.div`
         }
 
         div#base-stats {
-            width: 275px;
-            padding-top: 70px;
+            width: 290px;
+            padding-top: 20px;
             padding-right: 30px;
             height: 270px;
             display: flex;
