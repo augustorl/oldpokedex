@@ -1,11 +1,13 @@
 import styled from "styled-components";
-import pokedex from '../../assets/pokedex.png';
+import pokedex from '../../assets/11.png';
 
 export const Container = styled.div`
     background: url(${pokedex}) no-repeat;
     flex-direction: row;
     height: 700px;
     display: flex;
+    margin-left: 250px;
+    margin-top: 70px;
     div#pokedex-left {
         position: relative;
         max-width: 630px;

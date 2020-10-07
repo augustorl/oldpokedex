@@ -1,18 +1,50 @@
 import styled from 'styled-components';
 
+export const Wrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  height: 100vh;
+  flex: 1;
+`;
+
+export const Navbar = styled.nav`
+  display: flex;
+  justify-content: flex-start;
+  margin-left: 60px;
+  align-content: center;
+  align-items: center;
+  height: 150px;
+  img {
+    margin: 0 10px;
+    flex-shrink: none;
+    flex-wrap: none;
+    max-width: 200px;
+  }
+
+  form {
+  font-size: 12px;
+  width: 350px;
+  margin-left: 50px;
+  padding-right: 40px;
+}
+  
+
+`;
+
 export const Container = styled.div`
   img {
-    max-width: 550px;
-    padding-right: 50px;
+    max-width: 450px;
+    padding-right: 130px;
   }
-  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-content: center;
   align-items: center;
   form {
-  margin-top: 39px;
+  font-size: 12px;
+  margin-top: 19px;
   width: 500px;
   padding-right: 40px;
 }

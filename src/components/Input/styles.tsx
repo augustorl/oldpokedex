@@ -9,9 +9,10 @@ interface ContainerProps {
 export const Container = styled.div<ContainerProps>`
   background: #fcfcfc;
   border: 4px double #000;
-  padding: 16px;
+  padding: 12px;
   width: 100%;
   color: #222;
+  font-size: 12px;
   display: flex;
   align-items: center;
   & + div {
