@@ -5,7 +5,7 @@ export const Wrapper = styled.div`
   flex-direction: row;
   justify-content: center;
   height: 100vh;
-  flex: 1;
+  padding-bottom: 100px;
 `;
 
 export const Navbar = styled.nav`
@@ -14,7 +14,7 @@ export const Navbar = styled.nav`
   margin-left: 60px;
   align-content: center;
   align-items: center;
-  height: 150px;
+  height: 120px;
   img {
     margin: 0 10px;
     flex-shrink: none;

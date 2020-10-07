@@ -6,8 +6,7 @@ export const Container = styled.div`
     flex-direction: row;
     height: 700px;
     display: flex;
-    margin-top: 50px;
-    margin-right: 290px;
+    margin-right: 190px;
     div#pokedex-left {
         position: relative;
         max-width: 630px;
