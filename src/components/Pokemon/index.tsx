@@ -1,12 +1,14 @@
-import React from 'react';
-import { Container } from  './styles';
+import React, {SVGProps} from 'react';
+import { Container, PokemonType } from  './styles';
 import ProgressBar from '../ProgressBar';
 
-interface PokemonTypesProps {
-  name?: string;
-}
 
-interface PokeProps {
+export interface PokemonTypesProps {
+  name?: string;
+  icon: SVGProps<SVGSVGElement>;
+  color: string;
+}
+export interface PokeProps {
     specie: string;
     id: number;
     height: string;
@@ -31,11 +33,13 @@ const Pokemon: React.FC<PokeProps> = ({ type, flavorText, specie, id, weight, he
         <div id="pokedex-left">
 					<div id="pokemon-types">
             {type.map(pokemonType => (
-                <p>{pokemonType.name}</p>
+              <PokemonType color={pokemonType.color} key={pokemonType.name}>
+                {pokemonType.icon} <p>{pokemonType.name}</p>
+              </PokemonType>
             ))}
           </div>
           <figure id="sprite-container">
-            <img src={image} className="sprite-image"/>
+            <img src={image} alt={specie} className="sprite-image"/>
           </figure>
 					<div id="name-container">
               <span className="pokemon-name">{specie}</span>
@@ -63,11 +67,23 @@ const Pokemon: React.FC<PokeProps> = ({ type, flavorText, specie, id, weight, he
              <ProgressBar bgcolor="#9bcc50" completed={stats.hp}/>
             </div>
 						<div id="base-stats">
-							<div className="stat"><h1>attack </h1><p>{stats.attack}</p></div>
-							<div className="stat"><h1>defense </h1><p>{stats.defense}</p></div>
-							<div className="stat"><h1>speed </h1><p>{stats.speed}</p></div>
-							<div className="stat"><h1>sp. att. </h1><p>{stats.specialAttack}</p></div>
-							<div className="stat"><h1>sp. def. </h1><p>{stats.specialDefense}</p></div>
+							<div>
+                <h1>attack </h1><p>{stats.attack}</p>
+              </div>
+
+							<div>
+                <h1>defense </h1>
+                <p>{stats.defense}</p>
+              </div>
+							<div>
+                <h1>speed </h1><p>{stats.speed}</p>
+              </div>
+							<div>
+                <h1>sp. att. </h1><p>{stats.specialAttack}</p>
+              </div>
+							<div>
+                <h1>sp. def. </h1><p>{stats.specialDefense}</p>
+              </div>
 						</div>
           </div>
 					

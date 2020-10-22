@@ -1,11 +1,15 @@
 import styled from 'styled-components';
 
 export const Wrapper = styled.div`
+  height: 100vh;
+  width: 100vw;
+`;
+export const ContentWrapper = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: center;
-  height: 100vh;
-  width: 100vw;
+  max-width: 900px;
+  height: 600px;
 `;
 
 export const Navbar = styled.nav`
@@ -70,4 +74,5 @@ button {
 
 export const Pokedex = styled.div`
   margin-right: 400px;
+  
 `;

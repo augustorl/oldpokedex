@@ -1,6 +1,11 @@
 import styled from "styled-components";
 import pokedex from '../../assets/11.png';
 
+interface ElementColorProps {
+    color: string;
+}
+
+  
 export const Container = styled.div`
     background: url(${pokedex}) no-repeat;
     flex-direction: row;
@@ -14,24 +19,14 @@ export const Container = styled.div`
         width: 500px;
         padding: 80px 0px 40px 210px;
 
+
         div#pokemon-types {
+            margin-top: 5px;
             display: flex;
-            max-width: 255px;
+            max-width: 260px;
             justify-content: flex-end;
-            p {
-                padding: 4px;
-                margin: 0px 0px 5px 5px;
-                color: #E4E4E4;
-                border: 2px double #000;
-                text-transform: uppercase;
-                font-size: 8px;
-            }
-            p:first-child {
-                background-color: #9bcc50;
-                
-            }
-            p:last-child {
-                background-color: #b97fc9;
+            div {
+                max-width: 115px;
             }
         }
 
@@ -52,7 +47,7 @@ export const Container = styled.div`
             margin-top: 15px;
             margin-bottom: 10px;
             margin-left: 30px;
-            font-size: 14px;
+            font-size: 12.5px;
             display: flex;
             justify-content: space-around;
             flex-shrink: none;
@@ -73,7 +68,7 @@ export const Container = styled.div`
             max-width: 200px;
             height: 140px;
             font-size: 11.5px;
-            margin: 33px 0px 0px 40px;
+            margin: 33px 0px 0px 30px;
             color: #E4E4E4;
         }
     }
@@ -132,4 +127,36 @@ export const Container = styled.div`
     }
 
 
+`;
+
+export const PokemonType = styled.div<ElementColorProps>`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  background: ${({ color }) => color};
+  border: 1px double #000;
+
+
+  padding: 4px;
+  & + div {
+    margin-left: 10px;
+  }
+
+  svg {
+    margin-right: 1px;
+    width: 14px;
+    height: 14px;
+
+    path {
+      fill: #fff;
+    }
+  }
+
+    p {
+        margin-left: 2px;
+        color: #E4E4E4;
+        text-transform: uppercase;
+        font-size: 8px;
+    }
 `;

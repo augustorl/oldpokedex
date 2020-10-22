@@ -1,24 +1,27 @@
-import React, {useRef, useCallback, useState, useEffect} from 'react';
+import React, {useRef, useCallback, useState, useEffect, SVGProps} from 'react';
 import {Form} from '@unform/web';
 import {FormHandles} from '@unform/core';
 import * as Yup from 'yup';
 import api from '../../services/api';
 import logo from '../../assets/logo.png';
-import pokedex from '../../assets/pokedex.png';
 import pokemonTypes from '../../assets/types';
 import Input from '../../components/Input';
 import { useTheme } from 'styled-components';
 import Button from '../../components/Button';
 import getValidationErrors from '../../utils/getValidationErrors';
 import Pokemon from '../../components/Pokemon';
-import { Container, FormContainer, Wrapper, Navbar, Pokedex } from './styles';
+import { Container, FormContainer, Wrapper, Navbar, ContentWrapper } from './styles';
 
 interface PokemonFormData {
     pokemon: string;
 }
-interface PokemonTypesProps {
+
+export interface PokemonTypesProps {
     name?: string;
-  }
+    icon: SVGProps<SVGSVGElement>
+    color: string;
+}
+
 interface generatePokemonData {
     specie: string;
     id: number;
@@ -45,7 +48,7 @@ interface TypePokemonResponse {
 
 
 const Index: React.FC = () => {
-    // const { colors } = useTheme();
+    const { colors } = useTheme();
     const formRef = useRef<FormHandles>(null);
     const [pokemon, setPokemon] = useState<generatePokemonData>();
 
@@ -69,8 +72,13 @@ const Index: React.FC = () => {
             const response = await api.get(`https://pokeapi.co/api/v2/pokemon/${SearchedPokemon}`);
             const responsev2 = await api.get(`https://pokeapi.co/api/v2/pokemon-species/${SearchedPokemon}`);
 
-            let englishResponse = responsev2.data.filter((Object: { flavor_text_entries: { language: any; }; }) => Object.flavor_text_entries.language == “en”)
-            let flavorText = (responsev2.data.flavor_text_entries.shift()['flavor_text']);
+            const { flavor_text_entries } = responsev2.data;
+
+            let englishResponses = flavor_text_entries.filter(
+                (lang: any) => lang.language.name === 'en',
+            );
+            
+            let flavorText = (englishResponses[0].flavor_text.length >= 100) ? englishResponses[0].flavor_text.substr(0,90)+'...' : englishResponses[0].flavor_text.substr(0,93);
             const {
                 id,
                 weight,
@@ -99,7 +107,9 @@ const Index: React.FC = () => {
                   speed: stats[5].base_stat,
                 },
                 type: types.map((pokemonType: TypePokemonResponse) => ({
-                    name: pokemonType.type.name
+                    name: pokemonType.type.name,
+                    icon: pokemonTypes[pokemonType.type.name],
+                    color: colors.type[pokemonType.type.name],
                   })),
               });
 
@@ -114,29 +124,30 @@ const Index: React.FC = () => {
             }
           }
         },
-        [setPokemon],
+        [setPokemon,colors],
       );
 
     return  (
-    <>
-    {pokemon && (
-        <Navbar>
-        <img src={logo} alt="Pokemon" />
-            
-                <Form ref={formRef} onSubmit={searchPokemon}>
-                    <FormContainer>
-                        <Input
-                            name="pokemon"
-                            type="text"
-                            placeholder="New search!"
-                        />
-                        <Button type="submit">Go!</Button>
-                    </FormContainer>
-                </Form>
-            
-        </Navbar>
+    <Wrapper>
+        {pokemon && (
+            <Navbar>
+            <img src={logo} alt="Pokemon" />
+                
+                    <Form ref={formRef} onSubmit={searchPokemon}>
+                        <FormContainer>
+                            <Input
+                                name="pokemon"
+                                type="text"
+                                placeholder="New search..."
+                            />
+                            <Button type="submit">Go!</Button>
+                        </FormContainer>
+                    </Form>
+                
+            </Navbar>
         )}
-        <Wrapper>
+
+        <ContentWrapper>
         {!pokemon && (
             <Container>
                 <img src={logo} alt="Pokemon" />
@@ -145,7 +156,7 @@ const Index: React.FC = () => {
                         <Input
                             name="pokemon"
                             type="text"
-                            placeholder="Enter a Pokemon name!"
+                            placeholder="Enter a Pokemon name..."
                         />
                         <Button type="submit">Go!</Button>
                     </FormContainer>
@@ -153,14 +164,20 @@ const Index: React.FC = () => {
 
             </Container>
         )}
-        <Pokedex>
-            {pokemon && (
-                <Pokemon type={pokemon.type} flavorText={pokemon.flavorText} stats={pokemon.stats} image={pokemon.image}specie={pokemon.specie} id={pokemon.id} height={pokemon.height} weight={pokemon.weight}/>
-            )} 
-        </Pokedex>
-
-        </Wrapper>
-    </>
+        {pokemon && (
+                <Pokemon 
+                type={pokemon.type}
+                flavorText={pokemon.flavorText}
+                stats={pokemon.stats}
+                image={pokemon.image}
+                specie={pokemon.specie}
+                id={pokemon.id}
+                height={pokemon.height}
+                weight={pokemon.weight}
+                />
+        )}
+        </ContentWrapper>
+    </Wrapper>
     )
 }
 
