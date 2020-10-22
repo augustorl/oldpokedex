@@ -4,25 +4,27 @@ import pokedex from '../../assets/11.png';
 export const Container = styled.div`
     background: url(${pokedex}) no-repeat;
     flex-direction: row;
-    height: 700px;
+    height: 600px;
     display: flex;
-    margin-right: 190px;
+    align-content: flex-start;
+    justify-content: center;
+    margin-top: 30px;
+
     div#pokedex-left {
-        position: relative;
-        max-width: 630px;
-        padding: 160px 0px 0px 300px;
+        width: 500px;
+        padding: 80px 0px 40px 210px;
 
         div#pokemon-types {
             display: flex;
+            max-width: 255px;
             justify-content: flex-end;
-            margin-left: 150px;
             p {
                 padding: 4px;
-                margin: 0 0px 5px 5px;
+                margin: 0px 0px 5px 5px;
                 color: #E4E4E4;
                 border: 2px double #000;
                 text-transform: uppercase;
-                font-size: 12px;
+                font-size: 8px;
             }
             p:first-child {
                 background-color: #9bcc50;
@@ -34,38 +36,58 @@ export const Container = styled.div`
         }
 
         figure#sprite-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            align-content: center;
+            width: 300px;
             img {
-                max-width: 250px;
-                padding: 50px 0px 30px 70px;
+                width: 140px;
+                height: 140px;
+                margin-top: 45px;
+                margin-right: 35px;
             }
         }
         div#name-container {
+            margin-top: 15px;
+            margin-bottom: 10px;
+            margin-left: 30px;
+            font-size: 14px;
             display: flex;
             justify-content: space-around;
+            flex-shrink: none;
+            flex-grow: none;
             span {
                 color: #000;
                 text-transform: uppercase;
             }
             div#poke-number {
-                margin-right: 15px;
+                margin-right: 55px;
+                margin-left: 30px;
+                display: flex;
+                justify-content: flex-end;
             }
         }
+        
         div#pokemon-description {
-            max-width: 270px;
-            margin: 62px 0px 0px 24px;
+            max-width: 200px;
+            height: 140px;
+            font-size: 11.5px;
+            margin: 33px 0px 0px 40px;
             color: #E4E4E4;
         }
     }
     div#pokedex-right {
-        position: relative;
-        max-width: 630px;
-        padding: 270px 300px 0px 160px;
+        width: 500px;
+        padding: 110px 300px 20px 60px;
         text-transform: uppercase;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
         color: #E4E4E4;
 
-        div#hp-bar {
-            margin-top: 6px;
-
+        div#hp-bar {    
+            margin-left: 15px;
             p {
                 margin-left: 2px;
                 margin-bottom: 1px;
@@ -75,26 +97,27 @@ export const Container = styled.div`
 
         div#main-stats {
             display: flex;
-            justify-content: space-around;
-            width: 275px;
-            padding-right: 30px;
-            font-size: 18px;
+            justify-content: space-between;
+            margin-bottom: 5px;
+            width: 230px;
+            padding-right: 10px;
+            padding-left: 20px;
+            font-size: 14px;
             p {
-                padding: 7px;
+                padding: 4px;
                 padding-left: 2px;
             }
         }
 
         div#base-stats {
-            width: 290px;
-            padding-top: 20px;
-            padding-right: 30px;
+            width: 220px;
+            padding-top: 7px;
             height: 270px;
             display: flex;
             flex-direction: column;
             
             h1, p {
-                font-size: 18px;
+                font-size: 14px;
             }
             h1 {
                 margin-right: 40px;

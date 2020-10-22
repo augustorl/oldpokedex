@@ -5,7 +5,7 @@ export const Wrapper = styled.div`
   flex-direction: row;
   justify-content: center;
   height: 100vh;
-  padding-bottom: 100px;
+  width: 100vw;
 `;
 
 export const Navbar = styled.nav`
@@ -14,7 +14,8 @@ export const Navbar = styled.nav`
   margin-left: 60px;
   align-content: center;
   align-items: center;
-  height: 120px;
+  height: 100px;
+  flex: 1;
   img {
     margin: 0 10px;
     flex-shrink: none;
@@ -65,4 +66,8 @@ button {
   margin-bottom: 20px;
   margin-left: 20px;
 }
+`;
+
+export const Pokedex = styled.div`
+  margin-right: 400px;
 `;

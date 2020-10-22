@@ -1,56 +1,73 @@
-import React, {
-  useEffect,
-  useRef,
-  useState,
-  useCallback,
-} from 'react';
+import React from 'react';
 import { Container } from  './styles';
 import ProgressBar from '../ProgressBar';
 
-interface PokeProps {
-  id: number;
-  type: string;
-  name: string;
-  height: number;
-  weight: number;
+interface PokemonTypesProps {
+  name?: string;
 }
 
-const Pokemon: React.FC = () => {
+interface PokeProps {
+    specie: string;
+    id: number;
+    height: string;
+    weight: string;
+    image: string;
+    flavorText: string;
+    stats: {
+      hp: number;
+      attack: number;
+      defense: number;
+      specialAttack: number;
+      specialDefense: number;
+      speed: number;
+    };
+    type: PokemonTypesProps[];
+}
+
+const Pokemon: React.FC<PokeProps> = ({ type, flavorText, specie, id, weight, height, stats, image} : PokeProps) => {
+  
   return (
       <Container>
         <div id="pokedex-left">
 					<div id="pokemon-types">
-            <p>Grass</p>
-            <p>Poison</p>
+            {type.map(pokemonType => (
+                <p>{pokemonType.name}</p>
+            ))}
           </div>
           <figure id="sprite-container">
-            <img src="https://static.pokemonpets.com/images/monsters-images-300-300/1-Bulbasaur.png" className="sprite-image"/>
+            <img src={image} className="sprite-image"/>
           </figure>
 					<div id="name-container">
-              <span className="pokemon-name">Bulbasaur</span>
+              <span className="pokemon-name">{specie}</span>
               <div id="poke-number">
-                <span>No.</span> <span>1</span>
+                <span>No.</span><span>{id}</span>
               </div>
           </div>
           <div id="pokemon-description">
-            <p>A strange seed was planted on its back at birth. The plant sprouts and grows with this PokéMon.</p>
+            <p>{flavorText}</p>
           </div>
         </div>
         <div id="pokedex-right">
 						<div id="main-stats">
-							<p className="height">Height <div><p>10</p></div></p>
-							<p className="weight">Weight <div><p>98</p></div></p>
+							<div>
+                <p>Height</p>
+                <p>{height}</p>
+              </div>
+							<div>
+                <p>Weight</p>
+                <p>{weight}</p>
+              </div>
 						</div>
             <div id ="hp-bar">
-              <p>hp: 74</p>
-             <ProgressBar bgcolor="#9bcc50" completed="75"/>
+              <p>hp {stats.hp}</p>
+             <ProgressBar bgcolor="#9bcc50" completed={stats.hp}/>
             </div>
 						<div id="base-stats">
-							<div className="stat"><h1>attack </h1><p>20</p></div>
-							<div className="stat"><h1>defense </h1><p>30</p></div>
-							<div className="stat"><h1>speed </h1><p>20</p></div>
-							<div className="stat"><h1>sp. att. </h1><p>30</p></div>
-							<div className="stat"><h1>sp. def. </h1><p>40</p></div>
+							<div className="stat"><h1>attack </h1><p>{stats.attack}</p></div>
+							<div className="stat"><h1>defense </h1><p>{stats.defense}</p></div>
+							<div className="stat"><h1>speed </h1><p>{stats.speed}</p></div>
+							<div className="stat"><h1>sp. att. </h1><p>{stats.specialAttack}</p></div>
+							<div className="stat"><h1>sp. def. </h1><p>{stats.specialDefense}</p></div>
 						</div>
           </div>
 					
