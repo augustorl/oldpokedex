@@ -1,9 +1,5 @@
 import styled from 'styled-components';
 
-export const Wrapper = styled.div`
-  height: 100vh;
-  width: 100vw;
-`;
 export const ContentWrapper = styled.div`
   display: flex;
   flex-direction: row;

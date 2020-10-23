@@ -10,7 +10,7 @@ import { useTheme } from 'styled-components';
 import Button from '../../components/Button';
 import getValidationErrors from '../../utils/getValidationErrors';
 import Pokemon from '../../components/Pokemon';
-import { Container, FormContainer, Wrapper, Navbar, ContentWrapper } from './styles';
+import { Container, FormContainer, Navbar, ContentWrapper } from './styles';
 
 interface PokemonFormData {
     pokemon: string;
@@ -128,7 +128,7 @@ const Index: React.FC = () => {
       );
 
     return  (
-    <Wrapper>
+    <>
         {pokemon && (
             <Navbar>
             <img src={logo} alt="Pokemon" />
@@ -177,7 +177,7 @@ const Index: React.FC = () => {
                 />
         )}
         </ContentWrapper>
-    </Wrapper>
+    </>
     )
 }
 
