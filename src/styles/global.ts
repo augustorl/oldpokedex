@@ -2,7 +2,7 @@ import { createGlobalStyle } from 'styled-components';
 
 
 export default createGlobalStyle`
-  html, body {margin: 0; height: 100%; overflow: hidden};
+  html, body {margin: 0; height: 100%; width: 100%; overflow: hidden};
   * {
     font-family: 'Press Start 2P', 'sans serif';
     margin: 0;

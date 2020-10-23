@@ -10,6 +10,8 @@ import { useTheme } from 'styled-components';
 import Button from '../../components/Button';
 import getValidationErrors from '../../utils/getValidationErrors';
 import Pokemon from '../../components/Pokemon';
+import Footer from '../../components/Footer';
+
 import { Container, FormContainer, Navbar, ContentWrapper } from './styles';
 
 interface PokemonFormData {
@@ -177,6 +179,7 @@ const Index: React.FC = () => {
                 />
         )}
         </ContentWrapper>
+        <Footer />
     </>
     )
 }
