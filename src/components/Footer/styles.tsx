@@ -1,20 +1,18 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
+  export const Container = styled.div`
 
   footer {
     position: absolute;
     bottom: 0;
     width: 100%;
     height: 2.5rem;
-    margin-left: 100px;
-    margin-top: 35px;
     color: #3e4246;
 
     width: 100%;
     max-width: 1220px;
     p {
-      flex: 1;
+      margin-left: 100px;
     }
     a:first-child {
       color: #c00000;

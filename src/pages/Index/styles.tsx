@@ -19,7 +19,7 @@ export const Navbar = styled.nav`
   margin-left: 60px;
   align-content: center;
   align-items: center;
-  height: 100px;
+  height: 90px;
   flex: 1;
   img {
     margin: 0 10px;
