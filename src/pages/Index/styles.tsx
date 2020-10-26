@@ -9,23 +9,22 @@ export const ContentWrapper = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: center;
-  max-width: 900px;
   height: 600px;
 `;
 
 export const Navbar = styled.nav`
   display: flex;
   justify-content: flex-start;
-  margin-left: 60px;
+  margin-left: 275px;
   align-content: center;
   align-items: center;
-  height: 90px;
+  height: 80px;
   flex: 1;
   img {
     margin: 0 10px;
     flex-shrink: none;
     flex-wrap: none;
-    max-width: 200px;
+    max-width: 180px;
   }
 
   form {
@@ -33,8 +32,17 @@ export const Navbar = styled.nav`
   width: 350px;
   margin-left: 50px;
   padding-right: 40px;
-}
   
+  input {
+    height: 14px;
+  }
+  button {
+    height: 45px;
+  }
+  svg {
+    display: none;
+  }
+} 
 
 `;
 
@@ -48,6 +56,9 @@ export const Container = styled.div`
   justify-content: center;
   align-content: center;
   align-items: center;
+  @media (min-width: 1500px) {
+      margin-top: 300px;
+  }
   form {
   font-size: 12px;
   margin-top: 19px;

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import pokedex from '../../assets/11.png';
+import pokedex from '../../assets/pokedex-background.png';
 
 interface ElementColorProps {
     color: string;
@@ -13,7 +13,11 @@ export const Container = styled.div`
     display: flex;
     align-content: flex-start;
     justify-content: center;
-    margin-top: 30px;
+    margin-top: 20px;
+    
+    @media (min-width: 1500px) {
+      margin-top: 150px;
+    }
 
     div#pokedex-left {
         width: 500px;
