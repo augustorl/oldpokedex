@@ -11,7 +11,7 @@ import Button from '../../components/Button';
 import getValidationErrors from '../../utils/getValidationErrors';
 import Pokemon from '../../components/Pokemon';
 import Footer from '../../components/Footer';
-
+import { useToast } from '../../hooks/Toast';
 import { Container, FormContainer, Navbar, ContentWrapper } from './styles';
 
 interface PokemonFormData {
@@ -53,6 +53,8 @@ const Index: React.FC = () => {
     const { colors } = useTheme();
     const formRef = useRef<FormHandles>(null);
     const [pokemon, setPokemon] = useState<generatePokemonData>();
+    const { addToast } = useToast();
+    
 
     useEffect(() => {
         if (!pokemon) {
@@ -64,7 +66,7 @@ const Index: React.FC = () => {
     const searchPokemon = useCallback( async (data: PokemonFormData) => {
         try {
             const schema = Yup.object().shape({
-                pokemon: Yup.string().required('Pokemon is required.')
+                pokemon: Yup.string().required('Pokemon required.')
             });
             await schema.validate(data, {
                 abortEarly: false,
@@ -90,8 +92,8 @@ const Index: React.FC = () => {
                 types,
                 species,
             } = response.data;
-
-            setPokemon({
+            
+           setPokemon({
                 flavorText,
                 id,
                 image:
@@ -124,9 +126,15 @@ const Index: React.FC = () => {
               
               return;
             }
+
+            addToast({
+                type: 'error',
+                title: 'Pokemon not found!',
+                description: 'We were unable to find this Pokemon, please check your spelling.',
+              });
           }
         },
-        [setPokemon,colors],
+        [setPokemon,colors, addToast],
       );
 
     return  (
