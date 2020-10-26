@@ -8,26 +8,27 @@ interface ContainerProps {
 
 const toastTypesVariations = {
   info: css`
-    background: var(--white-color);
-    color: #53a4cf;
+    background: #ebf8ff;
+    color: #3172b7;
   `,
   success: css`
-    background: var(--white-color);
-    color: #9bcc50;
+    background: #e6fffa;
+    color: #2e656a;
   `,
   error: css`
-    background: var(--white-color);
-    color: var(--red-color);
+    background: #fddede;
+    color: #c00000;
   `,
 };
 
 export const Container = styled(animated.div)<ContainerProps>`
-  width: 360px;
+  width: 320px;
   position: relative;
   padding: 16px 30px 16px 16px;
   border-radius: 10px;
   box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
   display: flex;
+  font-size: 12px;
 
   & + div {
     margin-top: 8px;
@@ -43,7 +44,7 @@ export const Container = styled(animated.div)<ContainerProps>`
 
     p {
       margin-top: 4px;
-      font-size: 14px;
+      
       line-height: 20px;
     }
   }
@@ -65,6 +66,7 @@ export const Container = styled(animated.div)<ContainerProps>`
 
       svg {
         margin-top: 0;
+        display: none;
       }
     `}
 `;
