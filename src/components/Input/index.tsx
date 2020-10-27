@@ -56,6 +56,7 @@ const Input: React.FC<InputProps> = ({
         defaultValue={defaultValue}
         ref={inputRef}
         {...rest}
+        autoComplete="off"
       />
       {Icon && <Icon size={26} />}
 
