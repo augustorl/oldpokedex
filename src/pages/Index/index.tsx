@@ -1,6 +1,7 @@
 import React, {useRef, useCallback, useState, useEffect, SVGProps} from 'react';
 import {Form} from '@unform/web';
 import {FormHandles} from '@unform/core';
+import { useMediaQuery } from 'react-responsive';
 import * as Yup from 'yup';
 import api from '../../services/api';
 import logo from '../../assets/logo.png';
@@ -9,6 +10,7 @@ import Input from '../../components/Input';
 import { useTheme } from 'styled-components';
 import Button from '../../components/Button';
 import getValidationErrors from '../../utils/getValidationErrors';
+import Mobile from '../../components/Mobile';
 import Pokemon from '../../components/Pokemon';
 import Footer from '../../components/Footer';
 import { useToast } from '../../hooks/Toast';
@@ -54,6 +56,11 @@ const Index: React.FC = () => {
     const formRef = useRef<FormHandles>(null);
     const [pokemon, setPokemon] = useState<generatePokemonData>();
     const { addToast } = useToast();
+    
+
+    const isTabletOrMobileDevice = useMediaQuery({
+        query: '(max-width: 800px)'
+    });
     
 
     useEffect(() => {
@@ -139,22 +146,22 @@ const Index: React.FC = () => {
 
     return  (
     <>
-        {pokemon && (
-            <Navbar>
+    {!isTabletOrMobileDevice &&  <>{pokemon && (
+        <Navbar>
+            
             <img src={logo} alt="Pokemon" />
-                
-                    <Form ref={formRef} onSubmit={searchPokemon}>
-                        <FormContainer>
-                            <Input
-                                name="pokemon"
-                                type="text"
-                                placeholder="New search..."
-                            />
-                            <Button type="submit">Go!</Button>
-                        </FormContainer>
-                    </Form>
-                
-            </Navbar>
+
+            <Form ref={formRef} onSubmit={searchPokemon}>
+                <FormContainer>
+                    <Input
+                        name="pokemon"
+                        type="text"
+                        placeholder="New search..."
+                    />
+                    <Button type="submit">Go!</Button>
+                </FormContainer>
+            </Form>
+        </Navbar>
         )}
 
         <ContentWrapper>
@@ -188,6 +195,9 @@ const Index: React.FC = () => {
         )}
         </ContentWrapper>
         <Footer />
+    </>
+    }
+    {isTabletOrMobileDevice && <Mobile />}
     </>
     )
 }
