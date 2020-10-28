@@ -47,7 +47,7 @@
 ![Professor Oak Intro][professor-oak]
 
 
-![Pokedex Gif](https://github.com/augustorl/Best-README-Template/blob/master/images/oldpokedex.gif)
+![Pokedex Gif](https://github.com/augustorl/oldpokedex/blob/master/images/oldpokedex.gif)
 
 
 <!-- TABLE OF CONTENTS -->
@@ -68,11 +68,12 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-I always loved and enjoyed everything about Pokemon, especially playing the Gameboy saga. So when I was looking for a project to learn a bit more about using Typescript with React, I remembered how I always loved playing those games.
+I always loved and enjoyed everything about Pokemon, especially the Gameboy saga. So when I was looking for a project to learn a bit more about using Typescript with React, I remembered how I always loved playing those games.
 That's when I decided to make my own version of Pokedex! 
 
 Please feel free to check the [live demo](https://oldpokedex.netlify.app/) or see further information to run it locally.
 
+### Live Demo
 [![Pokedex Screen Shot][pokedex-screenshot]](https://oldpokedex.netlify.app/)
 
 Features:
