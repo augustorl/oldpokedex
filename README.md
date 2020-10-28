@@ -47,7 +47,7 @@
 ![Professor Oak Intro][professor-oak]
 
 
-![Pokedex Gif](https://github.com/augustorl/oldpokedex/tree/master/images/oldpokedex.gif)
+![Pokedex Gif](https://github.com/augustorl/oldpokedex/blob/master/images/oldpokedex.gif)
 
 
 <!-- TABLE OF CONTENTS -->
