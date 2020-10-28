@@ -73,6 +73,7 @@ That's when I decided to make my own version of Pokedex!
 
 Please feel free to check the [live demo](https://oldpokedex.netlify.app/) or see further information to run it locally.
 
+### Live Demo
 [![Pokedex Screen Shot][pokedex-screenshot]](https://oldpokedex.netlify.app/)
 
 Features:
