@@ -149,8 +149,10 @@ const Index: React.FC = () => {
     {!isTabletOrMobileDevice &&  <>{pokemon && (
         <Navbar>
             
-            <img src={logo} alt="Pokemon" />
-
+            <a href="/">
+                <img src={logo} alt="Pokemon" />
+            </a>
+            
             <Form ref={formRef} onSubmit={searchPokemon}>
                 <FormContainer>
                     <Input
@@ -178,7 +180,6 @@ const Index: React.FC = () => {
                         <Button type="submit">Go!</Button>
                     </FormContainer>
                 </Form>
-
             </Container>
         )}
         {pokemon && (

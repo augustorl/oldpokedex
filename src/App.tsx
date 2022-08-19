@@ -15,10 +15,8 @@ const App: React.FC = () => (
     <AppProvider>
       <ThemeProvider theme={theme}>
           <Index />
-          
         </ThemeProvider>
     </AppProvider>
-
     <GlobalStyle />
   </Router>
 );
